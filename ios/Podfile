@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '11.0'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 def add_flipper_pods!(versions = {})
@@ -77,11 +77,6 @@ target 'BirruMobileEx' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'BirruMobileExTests' do
-    inherit! :complete
-    # Pods for testing
-  end
-
   use_native_modules!
 
   # Enables Flipper.
@@ -91,14 +86,5 @@ target 'BirruMobileEx' do
   add_flipper_pods!
   post_install do |installer|
     flipper_post_install(installer)
-  end
-end
-
-target 'BirruMobileEx-tvOS' do
-  # Pods for BirruMobileEx-tvOS
-
-  target 'BirruMobileEx-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
   end
 end
